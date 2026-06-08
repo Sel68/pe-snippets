@@ -5,28 +5,25 @@ using namespace std;
 #define pb push_back
 #define all(v) v.begin(), v.end()
 #define rall(v) v.rbegin(), v.rend()
-#define fli(i, fc, n) for (int i = fc; i < n; i++)
+#define fli(i,fc,n) for(int i=fc;i<n;i++)
 #define nl "\n"
 #define ff first
 #define ss second
 
-// NRVO, RVO
-vector<int> sieve(int mx) {
-  vector<int> primes(mx, 1);
-  primes[0] = primes[1] = 0;
+//NRVO, RVO
+vector<int> sieve(int mx){
 
-  int sqrt_lim = (int)sqrt(mx);
-  fli(i, 2, sqrt_lim + 1) {
-    if (primes[i])
-      for (int j = i * i; j < mx; j += i) primes[j] = 0;
-  }
-  return primes;
+    vector<int> primes(mx, 1);
+    primes[0] = primes[1] = 0;
 
-  vector<int> prime_list;
-  // fli(i,2, mx) if (primes[i]) prime_list.pb(i); return prime_list;
+    int sqrt_lim = (int)sqrt(mx);
+    fli(i,2,sqrt_lim+1){
+        if (primes[i]) for (int j=i*i; j<mx; j+=i) primes[j] = 0;
+    }
+    return primes;
+
+    vector<int> prime_list;
+    // fli(i,2, mx) if (primes[i]) prime_list.pb(i); return prime_list;
 }
 
-int main() {
-  vector<int> primes = sieve(1e8);
-  return 0;
-}
+// vector<int> primes = sieve(1e8);
